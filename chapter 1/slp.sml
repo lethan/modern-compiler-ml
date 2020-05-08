@@ -64,4 +64,4 @@ and interpStm (AssignStm(id, exp), assigns)       = let
                                                       val (value, new_assigns) = interpExp(exp, assigns)
                                                     in (print (Int.toString(value) ^ " "); interpStm(PrintStm(exps), new_assigns)) end;
 
-fun interp stm = let val _ = interpStm(stm, []) in () end;
+fun interp stm = (interpStm(stm, []); ());
